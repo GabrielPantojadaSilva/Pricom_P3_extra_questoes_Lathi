@@ -1,5 +1,3 @@
-% (ExDM.m)
-% Example of sampling, quantization, and zero-order hold
 clear;clf;
 td=0.000104; % periodo de amostragem inicial de 1/9600
 t=[0:td:0.2]; % duracao da simulacoa em 0.2 s
