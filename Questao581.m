@@ -31,7 +31,7 @@ title('Sinal {\it m}({\it t}) e amostras uniformes');
 subplot(312); sfig1c=plot(Faxis,abs(Xsig));
 xlabel('frequencia (Hz)');
 axis([-3000 3000 0 6000])
-set(sfig1c,'Linewidth',1); title('Espectro of {\it m}({\it t})');
+set(sfig1c,'Linewidth',1); title('Espectro de {\it m}({\it t})');
 subplot(313); sfig1d=plot(Faxis,abs(S_out));
 xlabel('frequencia (Hz)');
 axis([-3000 3000 0 6000/Nfactor])
@@ -39,8 +39,8 @@ set(sfig1c,'Linewidth',1); title('Espectro de {\it m}_T({\it t})');
 % Calculo do sinal reconstruido a partir da amostragem ideal e do filtro PB
 % Maxima largura de banda do filtro eh BW=floor((Lfft/Nfactor)/2);
 BW=2000; %Largura de banda nao eh maior que 2000Hz.
-H_lpf=zeros(1,Lfft);H_lpf(Lfft/2-BW:Lfft/2+BW-1)=1; %Filtro PB ideal
-S_recv=Nfactor*S_out.*H_lpf; % Filtragem ideal
+H_lpf=zeros(1,Lfft);H_lpf(abs(Lfft/2-BW):Lfft/2+BW-1)=1; %Filtro PB ideal
+S_recv=Nfactor*s_out.*H_lpf; % Filtragem ideal
 s_recv=real(ifft(fftshift(S_recv))); % reconstrucao no dominio da frequencia
 s_recv=s_recv(1:Lsig); % reconstrucao no dominio do tempo
 % plota o sinal reconstruido idealmente no tempo e na frequencia
